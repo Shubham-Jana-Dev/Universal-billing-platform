@@ -1,0 +1,89 @@
+/* Using 'Inter' font */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap');
+ 
+/* Deep Dark Background for the whole body */
+body {
+    font-family: 'Inter', sans-serif;
+    min-height: 100vh;
+    background-color: #0d1117; 
+    color: #c9d1d9; /* Light text */
+}
+.main-content {
+    min-height: calc(100vh - 4rem); 
+}
+.sidebar-link {
+    transition: all 0.2s ease-in-out;
+    border-radius: 0.75rem; /* rounded-xl */
+}
+/* Active link glow */
+.sidebar-link.active-link {
+    background-color: #2a3440;
+    color: #4ade80; /* Neon Green/Emerald */
+    box-shadow: 0 0 10px rgba(74, 222, 128, 0.5);
+}
+ 
+/* Input and Textarea Styling for Dark Mode with focus glow */
+.dark-input {
+    background-color: #161b22;
+    border-color: #30363d;
+    color: #c9d1d9;
+    transition: all 0.2s;
+}
+.dark-input:focus {
+    outline: none;
+    border-color: #00e0ff; /* Cyan focus */
+    box-shadow: 0 0 0 2px #00e0ff;
+}
+
+/* Gradient Button Style */
+.gradient-button {
+    background: linear-gradient(90deg, #6d28d9 0%, #06b6d4 100%); /* Violet to Cyan */
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.gradient-button:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 15px rgba(6, 182, 212, 0.5);
+}
+.gradient-button:disabled {
+    background: #4a5568;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+/* Custom styles for print output (to show only the bill) */
+@media print {
+    body > *:not(.print-container) {
+        display: none;
+    }
+    .print-container {
+        display: block !important;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+    }
+    .bill-page {
+        /* Styles needed for the printing pop-up window */
+        width: 100%; 
+        max-width: 80mm; 
+        margin: 0 auto; 
+        padding: 10px; 
+        border: 1px solid #ccc; 
+        box-shadow: none !important;
+        border: none !important; 
+        color: #000; /* Ensure black text for printing */
+    }
+    /* Styles copied from the inline print HTML template to ensure consistent print output */
+    .bill-page { width: 100%; max-width: 80mm; margin: 0 auto; padding: 10px; border: 1px solid #ccc; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+    .header { text-align: center; margin-bottom: 20px; border-bottom: 2px solid #1f2937; padding-bottom: 10px; }
+    .header h1 { margin: 0; font-size: 18px; color: #1f2937; }
+    .header p { margin: 2px 0; font-size: 12px; color: #4b5563; }
+    .details { font-size: 13px; margin-bottom: 15px; }
+    .details div { margin-bottom: 4px; }
+    .details strong { width: 60px; display: inline-block; }
+    table { width: 100%; border-collapse: collapse; margin-bottom: 15px; }
+    th, td { border: 1px solid #e5e7eb; padding: 6px; text-align: left; font-size: 12px; }
+    th { background-color: #f3f4f6; font-weight: 700; text-align: right; }
+    .total-row td { text-align: right; font-size: 14px; font-weight: 700; background-color: #e0f2f1; color: #0d9488; }
+    .footer { text-align: center; margin-top: 20px; font-size: 12px; border-top: 1px dashed #9ca3af; padding-top: 10px; }
+}
